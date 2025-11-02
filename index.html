@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodies – Healthy Veggie Foods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #00b150;
+      --green-hover: #03924d;
+      --light-green: #f4fff8;
+      --border: #00b150;
+      --gray: #555;
+      --muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: #111827;
+      background: #fff;
+    }
+
+    /* HEADER */
+    header {
+      background: #f9fff9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 22px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--green-hover);
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px;
+      background: #f6fff6;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 45%;
+      min-width: 300px;
+    }
+
+    .hero-text h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      margin-bottom: 30px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    .hero img {
+      width: 45%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .feature-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* BENEFITS */
+    .benefits {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      padding: 80px;
+      flex-wrap: wrap;
+    }
+
+    .benefits img {
+      width: 45%;
+      border-radius: 10px;
+    }
+
+    .benefits ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .benefits li {
+      margin-bottom: 10px;
+      color: #374151;
+    }
+
+    .benefits li::before {
+      content: "✔";
+      color: var(--green);
+      margin-right: 8px;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      padding: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat-grid {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      background: #f6fff6;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .stat b {
+      color: var(--green);
+      font-size: 28px;
+      display: block;
+    }
+
+    /* VARIETY SECTION */
+    .variety {
+      text-align: center;
+      padding: 80px;
+    }
+
+    .variety h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .variety-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .variety-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+
+    .variety-item:nth-child(even) {
+      direction: rtl;
+      text-align: left;
+    }
+
+    .variety-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .variety-content {
+      background: var(--light-green);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .variety-content h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .variety-content p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .variety-content a {
+      background: #e8fff2;
+      color: var(--green);
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .variety-content a:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* PRODUCTS */
+    .products {
+      text-align: center;
+      padding: 80px;
+      background: #f9fff9;
+    }
+
+    .products h2 {
+      margin-bottom: 40px;
+      font-size: 30px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 50%;
+      border: 6px solid #f3f4f6;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .product-card .price {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 8px;
+      margin: 10px 0 20px;
+    }
+
+    .product-card .old {
+      color: #9ca3af;
+      text-decoration: line-through;
+      font-size: 13px;
+    }
+
+    /* CTA */
+    .cta {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      margin: 80px 0;
+    }
+
+    .cta img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      filter: brightness(0.6);
+    }
+
+    .cta .inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #f7fff9;
+      padding: 60px 80px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    footer h4 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 6px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    footer a:hover {
+      color: var(--green);
+    }
+
+    .subscribe {
+      display: flex;
+      gap: 10px;
+    }
+
+    .subscribe input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      flex: 1;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        width: 100%;
+      }
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+      .benefits,
+      .stats {
+        flex-direction: column;
+      }
+      .variety-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Foodies</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Service Us</a></li>
+        <li><a href="#">Our Company</a></li>
+        <li><a href="#">Pages</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn">Get Started</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>We’re Serious For Food.</h2>
+      <p>We strive to provide a space where guests can connect with themselves and explore their potential, offering a safe place.</p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+    <img src="images/Place Your Image.png" alt="Healthy Food" />
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-box">Free Shipping</div>
+    <div class="feature-box">Quick Payment</div>
+    <div class="feature-box">Special Promo</div>
+    <div class="feature-box">24/7 Support</div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <img src="images/j.png" alt="Green Foods" />
+    <div>
+      <h2>The More Healthy Food The Better</h2>
+      <ul>
+        <li>Be Alive With Veggie Food.</li>
+        <li>It’s The Place To Be.</li>
+        <li>Nothing Beats Veggie Food.</li>
+        <li>The Best Dish In Town.</li>
+        <li>Truffles, Figs & Pumpkin Spice.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div>
+      <h2>Veggie Food Goes On And Always On</h2>
+      <div class="stat-grid">
+        <div class="stat"><b>1,500</b> Sold Products</div>
+        <div class="stat"><b>500</b> Positive Feedback</div>
+        <div class="stat"><b>400</b> Official Stores</div>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1553531384-411a247d0d99?q=80&w=1200&auto=format&fit=crop" alt="Green smoothie" />
+  </section>
+
+  <!-- VARIETY OF FOODS -->
+  <section class="variety">
+    <h2>Variety Of Foods</h2>
+    <div class="variety-grid">
+      <div class="variety-item">
+        <img src="images/forever.png" alt="Veggies" />
+        <div class="variety-content">
+          <h3>Veggies Are Forever</h3>
+          <p>We offer the following services</p>
+          <a href="#">Discover Now →</a>
+        </div>
+      </div>
+
+      <div class="variety-item">
+        <img src="images/skin.png" alt="Papaya" />
+        <div class="variety-content">
+          <h3>Good For Your Skin</h3>
+          <p>We offer the following services</p>
+          <a href="#">Discover Now →</a>
+        </div>
+      </div>
+
+      <div class="variety-item">
+        <img src="images/groove.png" alt="Veggie Food Groove" />
+        <div class="variety-content">
+          <h3>Veggie Food Groove</h3>
+          <p>We offer the following services</p>
+          <a href="#">Discover Now →</a>
+        </div>
+      </div>
+
+      <div class="variety-item">
+        <img src="images/xlose.png" alt="Fruits" />
+        <div class="variety-content">
+          <h3>That Comes Close</h3>
+          <p>We offer the following services</p>
+          <a href="#">Discover Now →</a>
+        </div>
+      </div>
+
+      <div class="variety-item">
+        <img src="https://images.unsplash.com/photo-1590080875831-bbe1b3bb133d?q=80&w=1200&auto=format&fit=crop" alt="Lime" />
+        <div class="variety-content">
+          <h3>Good For Your Health</h3>
+          <p>We offer the following services</p>
+          <a href="#">Discover Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products">
+    <h2>Most Popular Product</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/summer.png" alt="Banana" />
+        <h4>Summer Veganie</h4>
+        <div class="price"><span class="old">$26</span><b>$29</b></div>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/greania.png" alt="Papaya" />
+        <h4>Greanie Seafood</h4>
+        <div class="price"><span class="old">$26</span><b>$29</b></div>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/fresh.png" alt="Fresh Veg" />
+        <h4>Fresh Vegetable</h4>
+        <div class="price"><span class="old">$26</span><b>$29</b></div>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/orange.png" alt="Mango" />
+        <h4>Fresh Meatyus</h4>
+        <div class="price"><span class="old">$26</span><b>$29</b></div>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+  </section>
+  <!-- CTA -->
+  <section class="cta">
+    <img src="images/main.png" alt="Veggie background" />
+    <div class="inner">
+      <h2>Veggie Foods: Ingredients You Want To Try</h2>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <h4>Foodies</h4>
+      <p>We provide healthy and tasty food for everyone. Join us and eat clean.</p>
+      <p style="margin-top:10px;font-size:13px;color:#777;">© 2025 Foodies. All Rights Reserved.</p>
+    </div>
+
+    <div>
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Service Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Company</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Partnership</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Get in Touch</h4>
+      <p style="color:#555;">Subscribe for more veggie inspiration</p>
+      <div class="subscribe">
+        <input type="email" placeholder="Your email" />
+        <a href="#" class="btn">Subscribe</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
